@@ -2,10 +2,11 @@
   (:gen-class))
 
 (def total-de-vidas 6)
+(def palavra-secreta "MELANCIA")
 
-(defn perdeu [] (print "Você perdeu!"))
+(defn perdeu [] (print "Você perdeu!\n"))
 
-(defn ganhou [] (print "Você ganhou!"))
+(defn ganhou [] (print "Você ganhou!\n"))
 
 (defn letras-faltantes [palavra acertos]
   (remove (fn [letra] (contains? acertos (str letra))) palavra))
@@ -39,7 +40,8 @@
           (println "Errou a letra! Perdeu vida!")
           (recur (dec vidas) palavra acertos))))))
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!"))
+(defn inicia-jogo []
+  (jogo total-de-vidas palavra-secreta #{}))
+
+(defn -main [& args]
+  (inicia-jogo))
