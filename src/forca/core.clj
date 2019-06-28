@@ -19,6 +19,8 @@
 (defn acertou? [chute palavra] (.contains palavra chute))
 
 (defn imprime-forca [vidas palavra acertos]
+  (print (str (char 27) "[2J"))
+  (print (str (char 27) "[;H"))
   (println "Vidas " vidas)
   (doseq [letra (seq palavra)]
     (if (contains? acertos (str letra))
