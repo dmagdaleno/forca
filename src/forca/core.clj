@@ -35,12 +35,8 @@
     :else   
     (let [chute (le-letra!)]
       (if (acertou? chute palavra)
-        (do
-          (println "Acertou a letra!")
-          (recur vidas palavra (conj acertos chute)))
-        (do
-          (println "Errou a letra! Perdeu vida!")
-          (recur (dec vidas) palavra acertos))))))
+        (recur vidas palavra (conj acertos chute))
+        (recur (dec vidas) palavra acertos)))))
 
 (defn inicia-jogo []
   (jogo total-de-vidas palavra-secreta #{}))
